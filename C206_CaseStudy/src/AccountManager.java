@@ -26,7 +26,7 @@ public class AccountManager {
 				deleteAccount(accountManager);
 				break;
 			case 4:
-				System.out.println("Goodbye!");
+				System.out.println("Thank you, goodbye!");
 				break;
 			default:
 				System.out.println("Invalid option");
