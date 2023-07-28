@@ -20,10 +20,10 @@ public class AccountManager {
 				accountManager.viewAllAccounts();
 				break;
 			case 2:
-				addUser(accountManager);
+				addAccount(accountManager);
 				break;
 			case 3:
-				deleteUser(accountManager);
+				deleteAccount(accountManager);
 				break;
 			case 4:
 				System.out.println("Goodbye!");
@@ -42,8 +42,8 @@ public class AccountManager {
 		System.out.println("4. Exit");
 		System.out.println("====================================================");
 	}
-	//add user/account
-	private static void addUser(AccountManager accountManager) {
+	//add account
+	private static void addAccount(AccountManager accountManager) {
 		String username = Helper.readString("Enter username: ");
 		String email = Helper.readString("Enter email: ");
 		String contactNum = Helper.readString("Enter contact number: ");
@@ -58,7 +58,7 @@ public class AccountManager {
 	}
 	// to delete account
 	// will ask for email
-	private static void deleteUser(AccountManager accountManager) {
+	private static void deleteAccount(AccountManager accountManager) {
 		String email = Helper.readString("Enter email of the account to delete: ");
 		accountManager.deleteAccount(email);
 	}
@@ -106,7 +106,7 @@ public class AccountManager {
 				return false;
 			}
 		}
-		//increment of ID for every user added
+		//increment of ID for every account added
 		String accountID = "ACC" + accountIdCounter++;
 		String customerID = "CUS" + customerIdCounter++;
 
