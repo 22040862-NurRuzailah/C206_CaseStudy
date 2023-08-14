@@ -4,13 +4,15 @@ import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
 
 public class AdministratorManagerTest {
-
+    private ArrayList<Administrator> users;
     private AdministratorManager administratorManager;
 
     @Before
     public void setUp() {
+        users = new ArrayList<>();
         administratorManager = new AdministratorManager();
     }
 
@@ -79,4 +81,3 @@ public class AdministratorManagerTest {
         return baos.toString();
     }
 }
-
