@@ -13,6 +13,7 @@ public class AccountManagerTest {
     @Before
     public void setUp() {
         accountManager = new AccountManager();
+        
     }
     @Test
     // NORMAL TEST CASE
