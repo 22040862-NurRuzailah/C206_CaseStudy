@@ -48,7 +48,7 @@ public class AdministratorManager {
             System.out.println("Unable to add User. Please try again.");
         }
     }
-
+    //delete user
     private static void deleteUser(AdministratorManager administratorManager) {
         String email = Helper.readString("Enter email of the user to delete: ");
         Administrator userToDelete = administratorManager.getUserByEmail(email);
