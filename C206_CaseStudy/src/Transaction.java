@@ -1,5 +1,6 @@
 public class Transaction {
-    private String customerID;
+
+	private String customerID;
     private String date;
     private int amount;
     private String currency;
@@ -39,4 +40,13 @@ public class Transaction {
     public int getBalance() {
         return balance;
     }
+    public void setDate(String date) {
+		this.date = date;
+	}
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+	public void setTransactionID(String transactionID) {
+		this.transactionID = transactionID;
+	}
 }
