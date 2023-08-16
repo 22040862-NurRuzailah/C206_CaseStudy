@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Account {
     private String username;
     private String email;
@@ -5,6 +8,7 @@ public class Account {
     private String customerID;
     private String accountID;
     private String password;
+    private List<Transaction> transactions; 
 
     public Account(String username, String email, String password, String contactNum, String customerID, String accountID) {
         this.username = username;
@@ -13,6 +17,7 @@ public class Account {
         this.customerID = customerID;
         this.accountID = accountID;
         this.password = password;
+        this.transactions = new ArrayList<>();
     }
 
     public String getUsername() {
@@ -37,5 +42,13 @@ public class Account {
 
     public String getPassword() {
         return password;
+    }
+
+    public List<Transaction> getTransactions() {
+        return transactions;
+    }
+
+    public void addTransaction(Transaction transaction) {
+        transactions.add(transaction);
     }
 }
