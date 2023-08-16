@@ -136,7 +136,7 @@ public class AccountManager {
 	                    account.getCustomerID(), account.getAccountID(), lastTransaction.getBalance()));
 	        } else {
 	            // Generate a random balance between 0 and 1000
-	            int randomBalance = random.nextInt(901) + 0; // Generates a value between 100 and 1000
+	            int randomBalance = random.nextInt(901) + 0; // Generates a value between 0 and 1000
 	            System.out.println(String.format("%-20s %-30s %-15s %-15s %-15s %-15d",
 	                    account.getUsername(), account.getEmail(), account.getContactNum(),
 	                    account.getCustomerID(), account.getAccountID(), randomBalance));
