@@ -8,7 +8,7 @@ public class Transaction {
     private int balance;
 
 //constructor
-    public Transaction(String customerID, String date, int amount, String currency, int balance, String transactionID) {
+    public Transaction(String customerID, String date, int amount, String currency, String transactionID, int balance) {
         this.customerID = customerID;
         this.date = date;
         this.amount = amount;
