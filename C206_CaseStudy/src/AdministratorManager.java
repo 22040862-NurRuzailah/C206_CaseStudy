@@ -49,7 +49,7 @@ public class AdministratorManager {
         String customerID = Helper.readString("Enter customer ID: ");
         String userRole = Helper.readString("Enter user role: ");
 
-        // Validate contact number
+        // Validate contact number....
         if (!contactNum.matches("[89]\\d{7}")) {
             System.out.println("Invalid Mobile number!");
             return;
