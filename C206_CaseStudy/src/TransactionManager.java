@@ -93,7 +93,7 @@ public class TransactionManager {
         String transactionID = generateTransactionID();
         int balance = generateNonNegativeBalance();
 
-        Transaction newTransaction = new Transaction(customerId, date, amount, currency, balance, transactionID);
+        Transaction newTransaction = new Transaction(customerId, date, amount, currency, transactionID, balance);
         transactionList.add(newTransaction);
         return true;
     }
