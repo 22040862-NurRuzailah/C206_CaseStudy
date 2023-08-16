@@ -43,8 +43,8 @@ public class Transaction {
     public void setDate(String date) {
 		this.date = date;
 	}
-	public void setAmount(int amount) {
-		this.amount = amount;
+	public void setBalance(int balance) {
+		this.balance = balance;
 	}
 	public void setTransactionID(String transactionID) {
 		this.transactionID = transactionID;
