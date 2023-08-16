@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class AccountManager {
 	//THIS WILL GENERATE RANDOM UNIQUE ID TO USERS 
@@ -116,20 +117,33 @@ public class AccountManager {
 	}
 	//view accounts
 	public void viewAllAccounts() {
-		if (accountList.isEmpty()) {
-			System.out.println("No accounts to display.");
-			return;
-		}
-		//using string format to display list in tabular form
-		System.out.println("================================ Money Exchange Account List ==================================");
-		System.out.println(String.format("%-20s %-30s %-15s %-15s %-15s %-15s", "Username", "Email", "Contact Num", "Customer ID", "Account ID", "Password"));
-		for (Account account : accountList) {
-			System.out.println(String.format("%-20s %-30s %-15s %-15s %-15s %-15s",
-					account.getUsername(), account.getEmail(), account.getContactNum(),
-					account.getCustomerID(), account.getAccountID(), account.getPassword()));
-		}
-		System.out.println();
+	    if (accountList.isEmpty()) {
+	        System.out.println("No accounts to display.");
+	        return;
+	    }
+	    
+	    System.out.println("================================ Money Exchange Account List ==================================");
+	    System.out.println(String.format("%-20s %-30s %-15s %-15s %-15s %-15s", "Username", "Email", "Contact Num", "Customer ID", "Account ID", "Balance"));
+	    
+	    Random random = new Random();
+	    
+	    for (Account account : accountList) {
+	        List<Transaction> transactions = account.getTransactions();
+	        if (!transactions.isEmpty()) {
+	            Transaction lastTransaction = transactions.get(transactions.size() - 1);
+	            System.out.println(String.format("%-20s %-30s %-15s %-15s %-15s %-15d",
+	                    account.getUsername(), account.getEmail(), account.getContactNum(),
+	                    account.getCustomerID(), account.getAccountID(), lastTransaction.getBalance()));
+	        } else {
+	            // Generate a random balance between 0 and 1000
+	            int randomBalance = random.nextInt(901) + 0; // Generates a value between 100 and 1000
+	            System.out.println(String.format("%-20s %-30s %-15s %-15s %-15s %-15d",
+	                    account.getUsername(), account.getEmail(), account.getContactNum(),
+	                    account.getCustomerID(), account.getAccountID(), randomBalance));
+	        }
+	    }
 	}
+
 	//delete account, will ask for email but not case sensitive
 	public boolean deleteAccount(String email) {
 		Account accountToDelete = null;
