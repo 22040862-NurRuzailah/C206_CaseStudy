@@ -115,7 +115,7 @@ public class AccountManager {
 		accountList.add(newAccount);
 		return true;
 	}
-	//view accounts
+	// is to view accounts
 	public void viewAllAccounts() {
 	    if (accountList.isEmpty()) {
 	        System.out.println("No accounts to display.");
