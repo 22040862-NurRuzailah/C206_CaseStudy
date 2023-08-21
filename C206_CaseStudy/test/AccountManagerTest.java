@@ -1,5 +1,6 @@
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Before;
@@ -16,20 +17,34 @@ public class AccountManagerTest {
         
     }
     @Test
-    // NORMAL TEST CASE
-    // CREATE A VALID ACCOUNT WITH ALL REQUIREMENTS MET
-    public void testValidAccountCreation() {
-        boolean result = accountManager.addAccount("Nur Ruzailah", "22040862@myrp.edu.sg", "99999999", "Password123");
-        assertTrue(result);
-    }
+ // NORMAL TEST CASE
+ // CREATE A VALID ACCOUNT WITH ALL REQUIREMENTS MET
+ public void testValidAccountCreation() {
+     AccountManager accountManager = new AccountManager(); // Create an instance of AccountManager
+
+     boolean result = accountManager.addAccount("Nur Ruzailah", "22040862@myrp.edu.sg", "99999999", "Password123");
+     assertTrue(result);
+
+     List<Account> accountList = accountManager.getAccountList(); // Retrieve the account list
+     assertEquals(1, accountList.size()); // Verify that the account was added
+     assertEquals("Nur Ruzailah", accountList.get(0).getUsername()); // Verify account details
+     assertEquals("22040862@myrp.edu.sg", accountList.get(0).getEmail());
+     assertEquals("99999999", accountList.get(0).getContactNum());
+     assertEquals("Password123", accountList.get(0).getPassword());
+ }
+
     
     @Test
     //BOUNDARY TEST CASE
     // CREATE A VALID ACCOUNT BUT PASSWORD REQUIREMENTS ARE NOT MET
     public void testInvalidPassword() {
+        List<Account> accountList = new ArrayList<>();
+        AccountManager accountManager = new AccountManager(); // Create an instance of AccountManager
+
         boolean result = accountManager.addAccount("Nur Ruzailah", "22040862@myrp.edu.sg", "99999999", "hahapw");
         assertFalse(result);
     }
+    
     @Test
     //ERROR TEST CASE
     // CREATE A DUPLICATE ACCOUNT
@@ -46,6 +61,9 @@ public class AccountManagerTest {
     //will delete existing account 
     //NORMAL
     public void testDeleteExistingAccount() {
+        // Create an instance of AccountManager
+        AccountManager accountManager = new AccountManager();
+
         // Adding an account first
         accountManager.addAccount("Fiz", "Fiz@gmail.com", "89898989", "Hellooo1234");
 
@@ -53,8 +71,10 @@ public class AccountManagerTest {
         boolean result = accountManager.deleteAccount("Fiz@gmail.com");
         assertTrue(result);
 
-        // Check accountList to see if it is deleted
+        // Retrieve the account list
         List<Account> accountList = accountManager.getAccountList();
+
+        // Verify that the account was deleted
         assertEquals(0, accountList.size());
     }
     @Test
